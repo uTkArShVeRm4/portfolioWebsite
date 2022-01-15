@@ -4,7 +4,7 @@ import csv
 app = Flask(__name__)
 
 @app.route("/", methods=["POST"])
-def home_page():
+def homePage():
     if request.method == "POST":
         return render_template('index.html')
     return render_template('index.html')
@@ -27,8 +27,8 @@ def writeToCSV(data):
         csv_writer = csv.writer(database, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([name,email,subject,message])
 
-@app.route("/submit_form", methods = ['POST', 'GET'])
-def submit_form():
+@app.route("/submitForm", methods = ['POST', 'GET'])
+def submitForm():
     if request.method == "POST":
         data = request.form.to_dict()
         writeToCSV(data)
