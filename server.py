@@ -3,7 +3,7 @@ import csv
 
 app = Flask(__name__)
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["POST", 'GET'])
 def homePage():
     if request.method == "POST":
         return render_template('index.html')
